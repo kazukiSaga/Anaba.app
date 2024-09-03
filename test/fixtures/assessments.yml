@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  spot: one
+  : MyString
+  body: MyString
+  city: MyString
+  average_rating: 1
+  average_quiet_rating: 1
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  user: two
+  spot: two
+  : MyString
+  body: MyString
+  city: MyString
+  average_rating: 1
+  average_quiet_rating: 1
+  latitude: 1.5
+  longitude: 1.5
