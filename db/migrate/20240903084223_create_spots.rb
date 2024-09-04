@@ -3,7 +3,6 @@ class CreateSpots < ActiveRecord::Migration[6.1]
     create_table :spots do |t|
       t.references :user, null: false, foreign_key: true
       t.references :prefecture, null: false, foreign_key: true
-      t.references :tag, null: false, foreign_key: true
       t.string :name, null: false
       t.string :body, null: false
       t.string :city, null: false
