@@ -1,7 +1,7 @@
 class Spot < ApplicationRecord
   belongs_to :user
   belongs_to :prefecture
-  belongs_to :tag
+  has_many :tags, through: :spot_tags
   has_many :assessments
   has_many :comments
 
