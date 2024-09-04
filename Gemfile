@@ -26,6 +26,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'devise_token_auth'
 
+# ファイルアップロードのためのGemを追加
+gem 'carrierwave', '~> 2.0'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 gem 'rack-cors'
