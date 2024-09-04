@@ -1,9 +1,8 @@
-class CreateUserTags < ActiveRecord::Migration[6.1]
+class CreateSpotTags < ActiveRecord::Migration[6.1]
   def change
-    create_table :user_tags do |t|
+    create_table :spot_tags do |t|
       t.references :user, null: false, foreign_key: true
       t.references :tag, null: false, foreign_key: true
-      t.string :name
 
       t.timestamps
     end
