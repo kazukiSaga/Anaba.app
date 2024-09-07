@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :assessments
   resources :spots do
     resources :assessments
+  end
   resources :comments
   resources :tags
   resources :prefectures
