@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :user_tags
 
-  validates :name, presence: true,length: { maximum: 13 }
+  #validates :name, presence: true,length: { maximum: 13 }
   validates :email, presence: true, uniqueness: true, length: { in: 6..255 } 
 end
