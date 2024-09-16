@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2024_09_03_113732) do
   create_table "spots", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "prefecture_id", null: false
-    t.string "name", null: false
+    t.strpgeming "name", null: false
     t.string "body", null: false
     t.string "city", null: false
     t.integer "average_rating"
