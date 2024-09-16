@@ -25,6 +25,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # 認証関連のGemを追加
 gem 'devise'
 gem 'devise_token_auth'
+gem 'ransack'
+gem 'kaminari'
 
 # ファイルアップロードのためのGemを追加
 gem 'carrierwave', '~> 2.0'
@@ -42,6 +44,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'pry-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
