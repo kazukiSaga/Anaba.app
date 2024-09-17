@@ -3,7 +3,6 @@ class Api::V1::SpotsController < ApplicationController
   include PaginationModule
   
   def index
-
     page = params[:page] || 1
     prefectures = Prefecture.all
     spots = Spot.all.page(page).per(10)
@@ -80,7 +79,6 @@ class Api::V1::SpotsController < ApplicationController
     end
     
   end
-
 
   private
 
