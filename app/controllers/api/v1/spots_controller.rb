@@ -1,5 +1,5 @@
 class Api::V1::SpotsController < ApplicationController
-  before_action :authenticate_api_v1_user!
+   before_action :authenticate_api_v1_user!, except: [:index, :show]
   include PaginationModule
   
   def index
