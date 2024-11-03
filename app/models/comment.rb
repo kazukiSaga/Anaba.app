@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
+  mount_uploaders :images, MemoryImageUploader
+
   belongs_to :user
   belongs_to :spot
   has_many :memories
