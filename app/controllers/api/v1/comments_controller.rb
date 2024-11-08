@@ -5,12 +5,15 @@ class Api::V1::CommentsController < ApplicationController
   def index
     spot = Spot.find(params[:spot_id])
 
-     render json: {
+    render json: {
         spot: spot.as_json(
           only: [:name, :average_rating, :average_quiet_rating],
           include: {
             prefecture: {
               only: [:name]
+            },
+            tags: {
+              only: %i[id name]
             },
             comments: {  
               only: [:id, :body],
@@ -35,6 +38,9 @@ class Api::V1::CommentsController < ApplicationController
           include: {
             prefecture: {
               only: [:name]
+            },
+            tags: {
+              only: %i[id name]
             }
           }
         )
@@ -45,12 +51,18 @@ class Api::V1::CommentsController < ApplicationController
   def show
     comment = Comment.find(params[:id])
 
+    # binding.pry
+
     render json: {
       comment: comment.as_json(
         include: {
           user: {
             only: [:name]
-          }
+          },
+          # tags: {
+          #   only: %i[id name]
+          # }
+
         }
       ),
     }
