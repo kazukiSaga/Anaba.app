@@ -5,15 +5,12 @@ class Api::V1::SpotsController < ApplicationController
   def index
     page = params[:page] || 1
     prefectures = Prefecture.all
-    tags = Tag.all # タグデータを取得
-    # spots = Spot.all.page(page).per(10)
-    spots = Spot.includes(:tags).page(page).per(10) # タグ情報を一緒に取得
+    tags = Tag.all 
+    spots = Spot.includes(:tags).page(page).per(10) 
 
-    # binding.pry
 
     pagination = resources_with_pagination(spots)
     render json: {
-      # spots: spots.as_json,
       spots: spots.as_json(include: { tags: { only: [:id, :name] } }), # タグ情報を含める
       prefectures: prefectures.as_json(only: %i[id name]),
       tags: tags.as_json(only: %i[id name]),
@@ -38,14 +35,12 @@ class Api::V1::SpotsController < ApplicationController
     if params[:tags].present?
 
       tags = params[:tags].map do |tag_name|
-        Tag.find_or_create_by(name: tag_name.strip) # タグが存在しない場合は作成
+        Tag.find_or_create_by(name: tag_name.strip) 
       end
       spot.tags = tags
     end
 
     if spot.save
-    #  タグ作成
-    # tag_spotの作成
       render json: {
         spot: spot.as_json(include: { tags: { only: [:id, :name] } })
       }
@@ -86,7 +81,7 @@ class Api::V1::SpotsController < ApplicationController
             only: [:id, :name]
           }
         }
-      ), # スポットに紐づく都道府県とタグ情報を含める
+      ),
     }, status: :ok
   end
 
