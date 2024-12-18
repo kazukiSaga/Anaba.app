@@ -57,4 +57,9 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  config.hosts << "www.example.com"
+
+  #テスト環境でのデバック
+  config.log_level = :debug
+  config.logger = ActiveSupport::Logger.new(Rails.root.join("log", "test.log"))
 end
