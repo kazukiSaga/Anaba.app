@@ -3,6 +3,9 @@ class Api::V1::AssessmentsController < ApplicationController
 
 
   def create
+    Rails.logger.debug "Received params: #{params.inspect}"
+    Rails.logger.debug "Assessment params: #{assessment_params.inspect}"
+
     spot = Spot.find(params[:spot_id])
     assessment =  spot.assessments.new(assessment_params)
     
@@ -26,9 +29,13 @@ class Api::V1::AssessmentsController < ApplicationController
         )
       },status: :ok
     else
+      # render json: {
+      #   errors: assessment.errors.full_messages
+      # }
+      Rails.logger.debug "Assessment errors: #{assessment.errors.full_messages}"
       render json: {
         errors: assessment.errors.full_messages
-      }
+      }, status: :unprocessable_entity # 明示的に 422 ステータスを指定
     end 
   end
 
