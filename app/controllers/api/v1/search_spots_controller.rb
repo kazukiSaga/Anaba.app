@@ -13,6 +13,6 @@ class Api::V1::SearchSpotsController < ApplicationController
   private
 
   def search_params
-      params.require(:q).permit(:name_cont,:prefecture_id_eq)
+      params.require(:q).permit(:name_cont,:prefecture_id_eq,:spot_tags_tag_id_eq)
   end
 end
