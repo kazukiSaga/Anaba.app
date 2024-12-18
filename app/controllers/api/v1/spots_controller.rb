@@ -32,13 +32,21 @@ class Api::V1::SpotsController < ApplicationController
   def create
     spot = Spot.new(spot_params)
     
-    if params[:tags].present?
+    # if params[:tags].present?
 
-      tags = params[:tags].map do |tag_name|
-        Tag.find_or_create_by(name: tag_name.strip) 
+    #   tags = params[:tags].map do |tag_name|
+    #     Tag.find_or_create_by(name: tag_name.strip) 
+    #   end
+    #   spot.tags = tags
+    # end
+    if params[:tags].present?
+      tags = params[:tags].map do |tag|
+        tag_name = tag.is_a?(String) ? tag : tag[:name] # ハッシュと文字列の両方に対応
+        Tag.find_or_create_by(name: tag_name.strip) if tag_name.present?
       end
       spot.tags = tags
     end
+
 
     if spot.save
       render json: {
@@ -120,12 +128,20 @@ class Api::V1::SpotsController < ApplicationController
   def update
     spot = Spot.find(params[:id])
     
+    # if params[:tags].present?
+    #   tags = params[:tags].map do |tag_name|
+    #     Tag.find_or_create_by(name: tag_name.strip)
+    #   end
+    #   spot.tags = tags # 関連付けを更新
+    # end
     if params[:tags].present?
-      tags = params[:tags].map do |tag_name|
-        Tag.find_or_create_by(name: tag_name.strip)
+      tags = params[:tags].map do |tag|
+        tag_name = tag.is_a?(String) ? tag : tag[:name] # ハッシュと文字列の両方に対応
+        Tag.find_or_create_by(name: tag_name.strip) if tag_name.present?
       end
-      spot.tags = tags # 関連付けを更新
-    end
+      spot.tags = tags
+    end    
+
 
     
     if spot.update(spot_params)
