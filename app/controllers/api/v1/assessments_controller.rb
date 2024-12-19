@@ -35,9 +35,9 @@ class Api::V1::AssessmentsController < ApplicationController
       Rails.logger.debug "Assessment errors: #{assessment.errors.full_messages}"
       render json: {
         errors: assessment.errors.full_messages
-      }, status: :unprocessable_entity # 明示的に 422 ステータスを指定
+      }, status: :unprocessable_entity 
     end 
-  end
+  en
 
   def show
   end
