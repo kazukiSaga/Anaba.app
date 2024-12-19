@@ -1,7 +1,25 @@
+# CarrierWave.configure do |config|
+#   if Rails.env.production?
+#     config.asset_host = 'anaba-front.vercel.app'
+#   elsif Rails.env.development?
+#     config.asset_host = 'http://localhost:3000'
+#   end
+# end
 CarrierWave.configure do |config|
   if Rails.env.production?
-    config.asset_host = 'anaba-front.vercel.app'
+    config.asset_host = 'https://anaba-front.vercel.app'
+    config.storage = :fog
+    config.fog_provider = 'fog/aws'
+    config.fog_credentials = {
+      provider:              'AWS',
+      aws_access_key_id:     Rails.application.credentials.dig(:aws, :access_key_id),
+      aws_secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
+      region:                Rails.application.credentials.dig(:aws, :region)
+    }
+    config.fog_directory = Rails.application.credentials.dig(:aws, :bucket)
+    config.fog_public = true # 公開設定を変更可能
   elsif Rails.env.development?
     config.asset_host = 'http://localhost:3000'
+    config.storage = :file
   end
 end
