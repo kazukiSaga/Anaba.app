@@ -5,6 +5,7 @@ class CreateComments < ActiveRecord::Migration[6.1]
       t.references :spot, null: false, foreign_key: true
       t.string :title
       t.string :body
+      t.json :images
 
       t.timestamps
     end
