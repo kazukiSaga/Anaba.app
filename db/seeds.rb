@@ -1,4 +1,4 @@
-prefetcture_data = [
+prefecture_data = [
   {
     name: "北海道",
   },
@@ -142,21 +142,20 @@ prefetcture_data = [
   }
 ]
 
-Prefecture.create!(prefetcture_data)
+Prefecture.create!(prefecture_data)
 
 user_data = [
   {
-    name: 'test-user1',
+    name: '山田太郎',
     email: 'test-user1@test.com',
     password: 'password1'
   },
   {
-    name: 'test-user2',
+    name: '田中中田',
     email: 'test-user2@test.com',
     password: 'password2'
   },
   {
-    name: 'test-user3',
     email: 'test-user3@test.com',
     password: 'password3'
   }
@@ -164,7 +163,20 @@ user_data = [
 User.create!(user_data)
 
 users = User.all
-prefectures = User.all
+prefectures = Prefecture.all
+
+tag_data = [
+  { name: '自然' },        # id1
+  { name: '歴史' },        # id2
+  { name: '観光地' },      # id3
+  { name: '静かな場所' },   # id4
+  { name: '絶景' },        # id5
+  { name: 'アウトドア' },   # id6
+  { name: '写真スポット' }, # id7
+  { name: 'パワースポット' }, # id8
+  { name: '建築物' }       # id9
+]
+Tag.create!(tag_data)
 
 spot_data = [
   {
@@ -173,378 +185,308 @@ spot_data = [
     city: "黒石市南中野家岸31",
     average_rating: 3,
     average_quiet_rating: 4,
+    latitude: 40.6105,
+    longitude: 140.6807,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 2,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 4
-      },
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 4
-      }
-    ]
+      { user_id: users.sample.id, rating: 3, quiet_rating: 4 },
+      { user_id: users.sample.id, rating: 3, quiet_rating: 4 }
+    ],
+    tag_names: ['自然', '絶景']
   },
   {
     name: "普代浜海水浴場",
-    body: "人で混雑もしておらず、静かな海水浴場です。海も綺麗ですし、隣にあるキャンプ場でキャンプも楽しめます。敷地内に産直があり、イカ焼き等を販売しておりお勧めです！",
-    city: "下閉伊郡普代村7",
-    average_rating: 4,
-    average_quiet_rating: 4,
+    body: "静かな海水浴場です。キャンプ場も隣接しており、海も綺麗です。",
+    city: "下閉伊郡普代村第７地割明神",
+    average_rating: 4,  
+    average_quiet_rating: 4,  
+    latitude: 40.0146,
+    longitude: 141.8999,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 3,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 5,
-        quiet_rating: 4
-      },
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 4
-      }
-    ]
+      { user_id: users.sample.id, rating: 5, quiet_rating: 4 },
+      { user_id: users.sample.id, rating: 3, quiet_rating: 4 }
+    ],
+    tag_names: ['静かな場所', 'アウトドア']
   },
   {
     name: "滝観洞",
-    body: "かなり自然の洞窟を残した状態になっているので、より洞窟を冒険している感覚がします。最奥には滝があり、洞窟の中にある滝という幻想的な景色を味わえます。行く際は長靴と濡れてもいい服装をお忘れなく！",
+    body: "自然の洞窟を冒険している感覚が味わえるスポットです。",
     city: "気仙郡住田町上有住土倉298-81",
-    average_rating: 5,
-    average_quiet_rating: 5,
+    average_rating: 5, 
+    average_quiet_rating: 5,  
+    latitude: 39.2419,
+    longitude: 141.6837,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 3,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 5,
-        quiet_rating: 4
-      },
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 5
-      }
-    ]
+      { user_id: users.sample.id, rating: 5, quiet_rating: 4 },
+      { user_id: users.sample.id, rating: 4, quiet_rating: 5 }
+    ],
+    tag_names: ['アウトドア', 'パワースポット']
   },
   {
     name: "横沼展望台",
-    body: "岩手でリアス式海岸が楽しめる展望台です。普段あまり人がいないため、ストレスなく写真撮影をすることができます。海岸に立ち奇岩に直に降りることができます。",
+    body: "リアス式海岸が見渡せる展望台。ストレスなく写真撮影ができます。",
     city: "久慈市侍浜町横沼8",
-    average_rating: 4,
-    average_quiet_rating: 5,
+    average_rating: 4,  
+    average_quiet_rating: 5,  
+    latitude: 40.2625,
+    longitude: 141.8193,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 3,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 5
-      },
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 5
-      }
-    ]
+      { user_id: users.sample.id, rating: 3, quiet_rating: 5 },
+      { user_id: users.sample.id, rating: 4, quiet_rating: 5 }
+    ],
+    tag_names: ['静かな場所', 'アウトドア']
   },
   {
     name: "天橋立",
-    body: "日本三景です。ゴンドラに乗った先にあります。逆さから見ると天に昇る龍に見えるそうです",
+    body: "日本三景の一つ。逆さから見ると天に昇る龍に見える景色です。",
     city: "宮津市文珠30",
-    average_rating: 5,
-    average_quiet_rating: 1,
+    average_rating: 5,  
+    average_quiet_rating: 1,  
+    latitude: 35.5627,
+    longitude: 135.1911,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 26,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 5,
-        quiet_rating: 1
-      },
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 1
-      }
-    ]
+      { user_id: users.sample.id, rating: 5, quiet_rating: 1 },
+      { user_id: users.sample.id, rating: 4, quiet_rating: 1 }
+    ],
+    tag_names: ['観光地', '写真スポット']
   },
   {
     name: "壇ノ浦パーキングエリア(下り)から見た関門橋",
-    body: "壇ノ浦パーキングエリア(下り)からだと関門橋近く感じることができ、迫力があります。高速利用者以外も裏から無料で入ることが可能です。",
+    body: "関門橋の迫力を間近で感じられるスポット。",
     city: "下関市壇之浦町6-1",
-    average_rating: 3,
-    average_quiet_rating: 3,
+    average_rating: 3,  
+    average_quiet_rating: 3, 
+    latitude: 33.9634,
+    longitude: 130.9541,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 35,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 2
-      },
-      {
-        user_id: users.sample.id,
-        rating: 2,
-        quiet_rating: 3
-      }
-    ]
+      { user_id: users.sample.id, rating: 3, quiet_rating: 2 },
+      { user_id: users.sample.id, rating: 2, quiet_rating: 3 }
+    ],
+    tag_names: ['写真スポット', '建築物']
   },
   {
-    name: "倉敷の夜景",
-    body: "観光地なので昼は混雑していますが、夜は人もまばらで川と柳の木が風情のある情景を生み出しています。",
+    name: "倉敷美観地区の夜景",
+    body: "観光地倉敷の夜景は、昼と違った風情を楽しめます。",
     city: "倉敷市中央1",
     average_rating: 4,
     average_quiet_rating: 4,
+    latitude: 34.5957,
+    longitude: 133.7717,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 33,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 3
-      },
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 4
-      }
-    ]
+      { user_id: users.sample.id, rating: 4, quiet_rating: 3 },
+      { user_id: users.sample.id, rating: 3, quiet_rating: 4 }
+    ],
+    tag_names: ['歴史', '観光地']
   },
   {
     name: "安の滝",
-    body: "日本の滝100選２位の滝です。山を登った先に大きな滝があります。滝のすぐ麓まで行くことができます。",
+    body: "滝100選にも選ばれた名滝。滝の麓まで行けます。",
     city: "北秋田市阿仁打当地区",
     average_rating: 5,
     average_quiet_rating: 3,
+    latitude: 39.9450,
+    longitude: 140.6170,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 5,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 5,
-        quiet_rating: 2
-      },
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 3
-      }
-    ]
+      { user_id: users.sample.id, rating: 5, quiet_rating: 2 },
+      { user_id: users.sample.id, rating: 4, quiet_rating: 3 }
+    ],
+    tag_names: ['自然', 'パワースポット']
   },
   {
     name: "乳稲ヶ滝（白神山地）",
-    body: "白神山地にある滝です。大きな滝ではないですが、滝の裏側に行くことができ、面白い写真を撮影できます。",
+    body: "白神山地にある滝。滝の裏側に行ける独特な体験ができます。",
     city: "中津軽郡西目村田代名坪平47-1",
-    average_rating: 4,  # 平均3.5を繰り上げて4
-    average_quiet_rating: 4,  # 平均3.5を繰り上げて4
+    average_rating: 4,
+    average_quiet_rating: 4,
+    latitude: 40.5695,
+    longitude: 140.2952,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 2,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 3
-      },
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 4
-      }
-    ]
+      { user_id: users.sample.id, rating: 4, quiet_rating: 3 },
+      { user_id: users.sample.id, rating: 3, quiet_rating: 4 }
+    ],
+    tag_names: ['自然', '絶景']
   },
   {
     name: "ヒメホタルの光",
-    body: "ヒメホタルの群生地である折爪岳は夏の時期になると集団に発行する光景を観測できます。ヘッドライトや虫除けスプレーは厳禁です。",
+    body: "夏になると光るヒメホタルを観察できるスポット。",
     city: "二戸市福岡織詰26-2",
     average_rating: 4,
     average_quiet_rating: 4,
+    latitude: 40.2701,
+    longitude: 141.3761,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 3,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 3
-      },
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 4
-      }
-    ]
+      { user_id: users.sample.id, rating: 4, quiet_rating: 3 },
+      { user_id: users.sample.id, rating: 4, quiet_rating: 4 }
+    ],
+    tag_names: ['自然', '絶景']
   },
   {
     name: "わっぱビルジング",
-    body: "檜の香りが漂うコアワーキングすコアワーキングスペース",
+    body: "檜の香りが漂うコワーキングスペース。",
     city: "大館市御成町1丁目12-27",
     average_rating: 3,
     average_quiet_rating: 3,
+    latitude: 40.2864,
+    longitude: 140.5586,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 5,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 3
-      },
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 3
-      }
-    ]
+      { user_id: users.sample.id, rating: 3, quiet_rating: 3 },
+      { user_id: users.sample.id, rating: 3, quiet_rating: 3 }
+    ],
+    tag_names: ['静かな場所', '建築物']
   },
   {
     name: "まるごと市場",
-    body: "秋田の美味しい魚介が味わえます",
+    body: "秋田の美味しい魚介が味わえる市場。",
     city: "秋田市卸町二丁目2番7号",
     average_rating: 3,
     average_quiet_rating: 2,
+    latitude: 39.7024,
+    longitude: 140.1103,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 5,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 2
-      },
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 2
-      }
-    ]
+      { user_id: users.sample.id, rating: 3, quiet_rating: 2 },
+      { user_id: users.sample.id, rating: 3, quiet_rating: 2 }
+    ],
+    tag_names: ['観光地', '建築物']
   },
   {
     name: "田沢湖",
-    body: "静かで、リラックスして景色を楽しめます。",
+    body: "静かでリラックスできる湖。",
     city: "仙北市田沢湖潟字搓湖",
     average_rating: 3,
     average_quiet_rating: 4,
+    latitude: 39.7353,
+    longitude: 140.6963,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 5,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 4
-      },
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 4
-      }
-    ]
+      { user_id: users.sample.id, rating: 3, quiet_rating: 4 },
+      { user_id: users.sample.id, rating: 3, quiet_rating: 4 }
+    ],
+    tag_names: ['自然', 'パワースポット']
   },
   {
     name: "阿仁スキー場",
-    body: "豊富な積雪量とパウダースノーが自慢です。山頂付近には樹氷があり、スキーをしない方でも楽しむ事ができます。",
+    body: "豊富な積雪と樹氷が自慢のスキー場。",
     city: "北秋田市松葉町3-1",
     average_rating: 4,
     average_quiet_rating: 3,
+    latitude: 39.9574,
+    longitude: 140.4976,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 5,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 3
-      },
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 3
-      }
-    ]
+      { user_id: users.sample.id, rating: 4, quiet_rating: 3 },
+      { user_id: users.sample.id, rating: 4, quiet_rating: 3 }
+    ],
+    tag_names: ['自然', 'アウトドア']
   },
   {
     name: "八幡平アスピーテライン",
-    body: "全長約27kmのドライブウェイにそびえ立つ「雪の回廊」は日本一の長さです。4月中旬から通行可能になります。",
+    body: "全長27kmのドライブウェイ。雪の回廊が見どころ。",
     city: "八幡平市松尾寄木",
     average_rating: 5,
     average_quiet_rating: 1,
+    latitude: 39.9549,
+    longitude: 140.8851,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 3,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 5,
-        quiet_rating: 1
-      },
-      {
-        user_id: users.sample.id,
-        rating: 5,
-        quiet_rating: 1
-      }
-    ]
+      { user_id: users.sample.id, rating: 5, quiet_rating: 1 },
+      { user_id: users.sample.id, rating: 5, quiet_rating: 1 }
+    ],
+    tag_names: ['観光地', '絶景']
   },
   {
     name: "立正寺",
-    body: "春には綺麗な桜が咲くお寺です。",
+    body: "春に綺麗な桜が咲くお寺。",
     city: "久慈市大沢40-10",
     average_rating: 3,
     average_quiet_rating: 2,
+    latitude: 40.2009,
+    longitude: 141.7478,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 3,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 2
-      },
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 2
-      }
-    ]
+      { user_id: users.sample.id, rating: 3, quiet_rating: 2 },
+      { user_id: users.sample.id, rating: 3, quiet_rating: 2 }
+    ],
+    tag_names: ['歴史', '写真スポット']
   },
   {
     name: "つりがね洞",
-    body: "大きな岩にぽっかりと穴が空いた奇岩です。タイミングが良ければ穴から朝日を拝むことができます。",
+    body: "大きな岩にぽっかりと穴が空いた奇岩。朝日が見どころです。",
     city: "久慈市長内町４６",
     average_rating: 4,
     average_quiet_rating: 4,
+    latitude: 40.1784,
+    longitude: 141.8339,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 3,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 4
-      },
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 4
-      }
-    ]
+      { user_id: users.sample.id, rating: 3, quiet_rating: 4 },
+      { user_id: users.sample.id, rating: 4, quiet_rating: 4 }
+    ],
+    tag_names: ['自然', '静かな場所']
   },
   {
     name: "きみまち公園",
-    body: "全国でも有数なパワースポットとなっており、対岸の七座山を龍に見立て、米代川の水を龍が飲んでいるという構図になり、「龍穴格局」というタイプのスポットです。春は桜、秋は紅葉を楽しめます",
+    body: "龍穴格局のパワースポット。桜や紅葉を楽しめます。",
     city: "能代市二ツ井町小繋字中島",
     average_rating: 4,
     average_quiet_rating: 4,
+    latitude: 40.2216,
+    longitude: 140.2562,
     user_id: users.sample.id,
-    prefecture_id: prefectures.sample.id,
+    prefecture_id: 5,
     assessments_attributes: [
-      {
-        user_id: users.sample.id,
-        rating: 3,
-        quiet_rating: 3
-      },
-      {
-        user_id: users.sample.id,
-        rating: 4,
-        quiet_rating: 4
-      }
-    ]
+      { user_id: users.sample.id, rating: 3, quiet_rating: 3 },
+      { user_id: users.sample.id, rating: 4, quiet_rating: 4 }
+    ],
+    tag_names: ['静かな場所', 'パワースポット']
+  },
+  {
+    name: "東京タワー",
+    body: "東京の象徴です。",
+    city: "港区芝公園4丁目2-8",
+    average_rating: 5,
+    average_quiet_rating: 2,
+    latitude: 35.6586,
+    longitude: 139.7454,
+    user_id: users.sample.id,
+    prefecture_id: 13,
+    assessments_attributes: [
+      { user_id: users.sample.id, rating: 5, quiet_rating: 1 },
+      { user_id: users.sample.id, rating: 4, quiet_rating: 2 }
+    ],
+    tag_names: ['歴史', '建築物']
   }
 ]
-Spot.create!(spot_data)
 
+spot_data.each do |data|
+  tag_names = data.delete(:tag_names) 
+  spot = Spot.create!(data)           
+  spot.tags = Tag.where(name: tag_names) 
+end
