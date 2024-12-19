@@ -11,7 +11,7 @@ class Api::V1::SpotsController < ApplicationController
 
     pagination = resources_with_pagination(spots)
     render json: {
-      spots: spots.as_json(include: { tags: { only: [:id, :name] } }), # タグ情報を含める
+      spots: spots.as_json(include: { tags: { only: [:id, :name] } }),
       prefectures: prefectures.as_json(only: %i[id name]),
       tags: tags.as_json(only: %i[id name]),
       pagination: pagination.as_json
@@ -32,13 +32,21 @@ class Api::V1::SpotsController < ApplicationController
   def create
     spot = Spot.new(spot_params)
     
-    if params[:tags].present?
+    # if params[:tags].present?
 
-      tags = params[:tags].map do |tag_name|
-        Tag.find_or_create_by(name: tag_name.strip) 
+    #   tags = params[:tags].map do |tag_name|
+    #     Tag.find_or_create_by(name: tag_name.strip) 
+    #   end
+    #   spot.tags = tags
+    # end
+    if params[:tags].present?
+      tags = params[:tags].map do |tag|
+        tag_name = tag.is_a?(String) ? tag : tag[:name]
+        Tag.find_or_create_by(name: tag_name.strip) if tag_name.present?
       end
       spot.tags = tags
     end
+
 
     if spot.save
       render json: {
@@ -70,7 +78,7 @@ class Api::V1::SpotsController < ApplicationController
   def edit
     spot = Spot.find(params[:id])
     prefectures = Prefecture.all
-    tags = Tag.all # 全てのタグを取得 (または spot.tags で関連付けられたタグのみを取得)
+    tags = Tag.all
 
     render json: {
       spot: spot.as_json(
@@ -120,12 +128,20 @@ class Api::V1::SpotsController < ApplicationController
   def update
     spot = Spot.find(params[:id])
     
+    # if params[:tags].present?
+    #   tags = params[:tags].map do |tag_name|
+    #     Tag.find_or_create_by(name: tag_name.strip)
+    #   end
+    #   spot.tags = tags # 関連付けを更新
+    # end
     if params[:tags].present?
-      tags = params[:tags].map do |tag_name|
-        Tag.find_or_create_by(name: tag_name.strip)
+      tags = params[:tags].map do |tag|
+        tag_name = tag.is_a?(String) ? tag : tag[:name]
+        Tag.find_or_create_by(name: tag_name.strip) if tag_name.present?
       end
-      spot.tags = tags # 関連付けを更新
-    end
+      spot.tags = tags
+    end    
+
 
     
     if spot.update(spot_params)

@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2024_09_03_113732) do
     t.bigint "spot_id", null: false
     t.string "title"
     t.string "body"
+    t.json "images"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["spot_id"], name: "index_comments_on_spot_id"
@@ -94,7 +95,7 @@ ActiveRecord::Schema.define(version: 2024_09_03_113732) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "name"
+    t.string "name", default: "名無し", null: false
     t.string "email"
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false

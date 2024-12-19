@@ -51,8 +51,6 @@ class Api::V1::CommentsController < ApplicationController
   def show
     comment = Comment.find(params[:id])
 
-    # binding.pry
-
     render json: {
       comment: comment.as_json(
         include: {
