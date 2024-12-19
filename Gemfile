@@ -30,6 +30,8 @@ gem 'kaminari'
 
 # ファイルアップロードのためのGemを追加
 gem 'carrierwave', '~> 2.0'
+gem 'aws-sdk-s3'
+gem 'fog-aws'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
