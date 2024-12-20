@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   end
 
   get '/api/test', to: 'application#test'
+
+  root to: proc { [404, {}, ['Not Found']] }
 end
