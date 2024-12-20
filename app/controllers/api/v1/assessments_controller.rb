@@ -37,7 +37,7 @@ class Api::V1::AssessmentsController < ApplicationController
         errors: assessment.errors.full_messages
       }, status: :unprocessable_entity 
     end 
-  en
+  end
 
   def show
   end
