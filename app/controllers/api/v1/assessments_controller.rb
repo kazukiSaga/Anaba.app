@@ -29,9 +29,6 @@ class Api::V1::AssessmentsController < ApplicationController
         )
       },status: :ok
     else
-      # render json: {
-      #   errors: assessment.errors.full_messages
-      # }
       Rails.logger.debug "Assessment errors: #{assessment.errors.full_messages}"
       render json: {
         errors: assessment.errors.full_messages
