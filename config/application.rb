@@ -40,5 +40,16 @@ module Myapp
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
     config.hosts << 'https://anaba.onrender.com'
+
+    # --- CORS の設定を追加 ---
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'https://www.anabashare.com' # フロントエンドのURL
+        resource '*',
+                 headers: :any,
+                 methods: [:get, :post, :put, :patch, :delete, :options, :head],
+                 credentials: true
+      end
+    end
   end
 end
