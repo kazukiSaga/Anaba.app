@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
       scope '/api/v1' do
-    resources :users, only: [:update]
+    resources :users, only: [:update, :show]
   end
 
   get '/api/test', to: 'application#test'
