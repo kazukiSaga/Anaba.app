@@ -71,6 +71,7 @@ class Api::V1::CommentsController < ApplicationController
   def create
     spot = Spot.find(params[:spot_id])
     comment = spot.comments.build(comment_params)
+    
 
     if comment.save
       render json: {spot_id: spot.id, comment_id: comment.id}, status: :ok
@@ -83,6 +84,6 @@ class Api::V1::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:title, :body, { images: [] }).merge(user: current_api_v1_user)
+    params.require(:comment).permit(:title, :body, images: []).merge(user: current_api_v1_user)
   end
 end
