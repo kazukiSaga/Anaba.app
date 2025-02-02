@@ -22,6 +22,7 @@ CarrierWave.configure do |config|
       path_style: true
     }
     config.fog_directory = Rails.application.credentials.dig(:aws, :bucket)
+    config.fog_public = true
   elsif Rails.env.development?
     config.asset_host = 'http://localhost:3000'
     config.storage = :file
