@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_api_v1_user!
+
+  
   def index
+     render json: {
+      user: current_api_v1_user
+    }
+    
   end
 
   def new
@@ -13,11 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id])
-
-    render json: {
-      user: user
-    }
+   
     
   end
 
