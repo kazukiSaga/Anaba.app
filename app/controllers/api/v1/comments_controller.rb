@@ -57,10 +57,6 @@ class Api::V1::CommentsController < ApplicationController
           user: {
             only: [:name]
           },
-          # tags: {
-          #   only: %i[id name]
-          # }
-
         }
       ),
     }
@@ -76,7 +72,8 @@ class Api::V1::CommentsController < ApplicationController
     if comment.save
       render json: {spot_id: spot.id, comment_id: comment.id}, status: :ok
     else
-      render json: comment.errors, status: :unprocessable_entity
+      Rails.logger.error "バリデーションエラー: #{comment.errors.full_messages.join(", ")}"
+      render json: { errors: comment.errors.messages }, status: :unprocessable_entity
     end
   end
 
