@@ -32,13 +32,6 @@ class Api::V1::SpotsController < ApplicationController
   def create
     spot = Spot.new(spot_params)
     
-    # if params[:tags].present?
-
-    #   tags = params[:tags].map do |tag_name|
-    #     Tag.find_or_create_by(name: tag_name.strip) 
-    #   end
-    #   spot.tags = tags
-    # end
     if params[:tags].present?
       tags = params[:tags].map do |tag|
         tag_name = tag.is_a?(String) ? tag : tag[:name]
@@ -59,22 +52,6 @@ class Api::V1::SpotsController < ApplicationController
     end
   end
 
-  # def edit
-  #   spot = Spot.find(params[:id])
-  #   prefectures = Prefecture.all
-
-
-  #   render json: {
-  #     spot: spot.as_json(
-  #       include: {
-  #         prefecture: {
-  #           only: [:name]
-  #         }
-  #       }
-  #     ),
-  #     prefectures: prefectures.as_json(only: %i[id name]),
-  #   },status: :ok
-  # end
   def edit
     spot = Spot.find(params[:id])
     prefectures = Prefecture.all
@@ -113,27 +90,8 @@ class Api::V1::SpotsController < ApplicationController
     }, status: :ok
   end
 
-  # def update
-  #   spot = Spot.find(params[:id])
-  #   if spot.update(spot_params)
-  #     render json: {},status: :created
-  #   else
-  #     render json: {
-  #       errors: spot.errors.full_messages
-  #     },status: :bad_request
-  #   end
-    
-  # end
-
   def update
     spot = Spot.find(params[:id])
-    
-    # if params[:tags].present?
-    #   tags = params[:tags].map do |tag_name|
-    #     Tag.find_or_create_by(name: tag_name.strip)
-    #   end
-    #   spot.tags = tags # 関連付けを更新
-    # end
     if params[:tags].present?
       tags = params[:tags].map do |tag|
         tag_name = tag.is_a?(String) ? tag : tag[:name]
