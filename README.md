@@ -168,7 +168,7 @@ draw.io：https://drive.google.com/file/d/1COQNKC9mRp6apwWSm0Mf6W9a0WITyTIS/view
 # 💻 機能紹介
 | ユーザー登録 / ログイン |
 | :---: | 
-| ![ユーザー登録/ログイン機能の画像] |
+| [![Image from Gyazo](https://i.gyazo.com/e82a4285a593f1a36fd7d221253be07e.gif)](https://gyazo.com/e82a4285a593f1a36fd7d221253be07e) |
 | <p align="left">『名前』『メールアドレス』『パスワード』『確認用パスワード』を入力してユーザー登録を行います。ユーザー登録後は、自動的にログイン処理が行われるようになっており、そのまま直ぐにサービスを利用する事が出来ます。</p> |
 
 | スポット登録機能 |
