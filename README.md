@@ -70,7 +70,9 @@
 | Web API | Google Maps API |
 | データベースサーバー | PostgreSQL |
 | バージョン管理ツール | GitHub |
-| バージョン管理ツール | GitHub |
+| CI/CD | GitHub Action |
+| インフラ | Vercel（フロントエンド）、Render.com（バックエンド）、AWS S3（画像ストレージ） |
+| テスト | rspec |
 
 ## ER図
 [ER図のリンク](https://drive.google.com/file/d/1COQNKC9mRp6apwWSm0Mf6W9a0WITyTIS/view?usp=sharing)
