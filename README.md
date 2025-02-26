@@ -173,27 +173,27 @@ draw.io：https://drive.google.com/file/d/1COQNKC9mRp6apwWSm0Mf6W9a0WITyTIS/view
 
 | スポット登録機能 |
 | :---: | 
-| ![スポット登録機能の画像] |
+| <img width="1710" alt="image" src="https://github.com/user-attachments/assets/1061dd27-07f9-460b-ada0-df641537f071" /> |
 | <p align="left">自分が見つけた穴場スポットを『スポット名』『住所』『説明』『タグ』と共に登録できます。スポットを登録したユーザーのみ、登録したスポットの編集が可能です。</p> |
 
 | 写真・コメント投稿機能 |
 | :---: | 
-| ![写真・コメント投稿機能の画像] |
+| <img width="1710" alt="image" src="https://github.com/user-attachments/assets/a9d82da5-2199-4e98-b088-b935a674758f" /> |
 | <p align="left">登録された穴場スポットに対して、各ユーザーはタイトル、写真とコメントを投稿することができます。投稿された写真やコメントは投稿詳細ページで閲覧できます。</p> |
 
 | 評価機能 |
 | :---: | 
-| ![評価機能の画像] |
+| <img width="1710" alt="image" src="https://github.com/user-attachments/assets/09bf4b47-2fb9-4d2e-a9be-4bf17fc9883c" /> |
 | <p align="left">登録された穴場スポットに対して、『おすすめ度』『混雑の少なさ』の2つの項目について5段階評価（セレクトボックス形式）を行うことができます。</p> |
 
 | 検索機能 |
 | :---: | 
-| ![検索機能の画像] |
+| <img width="1710" alt="image" src="https://github.com/user-attachments/assets/1929b602-b918-42a0-8675-64b9e7c414cc" /> |
 | <p align="left">『スポット名』『タグ』『都道府県』で投稿された穴場スポットを検索することができます。スポット名検索ではインクリメントサーチに対応しており、入力しながら候補が表示されます。</p> |
 
 | Googleマップ連携機能 |
 | :---: | 
-| ![Googleマップ連携機能の画像] |
+| [![Image from Gyazo](https://i.gyazo.com/2502198d2f0aab067e17113efed4c4ec.gif)](https://gyazo.com/2502198d2f0aab067e17113efed4c4ec) |
 | <p align="left">登録された穴場スポットはGoogleマップ上にピンで表示され、カーソルを合わせるとスポット名と評価がポップアップで表示されます。ピンをクリックすると、その穴場の詳細ページに移動し、説明や写真、コメントの一覧などの情報を閲覧できます。</p> |
 
 # 🔧 技術構成について
