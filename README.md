@@ -67,10 +67,11 @@
 ## 使用技術
 | カテゴリ | 技術内容 |
 | --- | --- | 
-| サーバーサイド | Ruby on Rails |
-| フロントエンド | JavaScript |
-| CSSフレームワーク | Tailwind CSS |
-| Web API | Google Maps API |
+| サーバーサイド | Ruby on Rails (API モード) |
+| フロントエンド | Vue.js 3 |
+| UIライブラリ | Vuetify |
+| 認証 | DeviseToken Auth |
+| Web API | Google Maps API、Google Maps Geocoding API |
 | データベースサーバー | PostgreSQL |
 | バージョン管理ツール | GitHub |
 | CI/CD | GitHub Action |
