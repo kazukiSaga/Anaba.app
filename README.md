@@ -21,7 +21,7 @@
 # 🌏 サービスURL
 ### バックエンド: https://www.anabashare.com/
 
-# 💻 フロントエンドURL
+# 💻 フロントエンドリポジトリ
 ### フロントエンド: https://github.com/kazukiSaga/anaba.front
 
 # 📖 サービス開発の背景
