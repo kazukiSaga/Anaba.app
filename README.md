@@ -19,7 +19,7 @@
 登録された穴場に対して、各ユーザーはタイトル、写真とコメントの投稿、5段階評価（おすすめ度、混雑の少なさの2つの評価）を行えます。
 
 # 🌏 サービスURL
-### https://www.anabashare.com/
+### https://www.anabashare.com
 
 # 💻 フロントエンドリポジトリ
 ### フロントエンド: https://github.com/kazukiSaga/anaba.front
