@@ -9,7 +9,6 @@
 - [技術構成について](#-技術構成について)
   - [使用技術](#使用技術)
   - [ER図](#er図)
-  - [画面遷移図](#画面遷移図)
 
 # 🗾 サービス概要
 〜 あなたの知らない景色がそこにある。混雑を避けた穴場スポット共有サービス 〜
@@ -81,5 +80,3 @@
 ## ER図
 [ER図のリンク](https://drive.google.com/file/d/1COQNKC9mRp6apwWSm0Mf6W9a0WITyTIS/view?usp=sharing)
 
-## 画面遷移図
-[Figma画面遷移図のリンク](https://www.figma.com/design/QnDeRMhH1xPCbQVlR3v1ks/Anaba%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=fpmVHC09WLr3n4Ha-1)
