@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       mount_devise_token_auth_for "User", at: "auth"
 
+      # ゲストログイン用ルーティング
+      post "auth/guest_sign_in", to: "auth/sessions#guest_sign_in"
+
       resources :spots, only: [:index, :new, :edit,:create, :update, :show]  do
         resources :assessments,only: [:create]
         resources :comments,only: [:index, :new, :show, :create]
