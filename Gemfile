@@ -22,13 +22,11 @@ gem 'puma', '~> 5.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-# 認証関連のGemを追加
 gem 'devise'
 gem 'devise_token_auth'
 gem 'ransack'
 gem 'kaminari'
-
-# ファイルアップロードのためのGemを追加
+3
 gem 'carrierwave', '~> 2.0'
 gem 'aws-sdk-s3'
 gem 'fog-aws'
